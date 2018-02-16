@@ -52,7 +52,12 @@
  * Time: 下午6:55
  */
 require_once 'functions.php';
-$file = getFileContent('mm.txt');
+$filename = 'abc.txt';
+if(isset($_GET['type'])){
+    $type = $_GET['type'];
+    if($type == 'mm') $filename = 'mm.txt';
+}
+$file = getFileContent($filename);
 echo createUL(getSSLink($file));
 ?>
 
@@ -93,6 +98,7 @@ echo createUL(getSSLink($file));
         }
     }
 </script>
+<a href="index.php?type=mm" >mm</a>
 </body>
 </html>
 
