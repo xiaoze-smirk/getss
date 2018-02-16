@@ -42,6 +42,7 @@
     </style>
 </head>
 <body>
+<a href="index.php?type=mm" >mm</a>
 <div id="qrcode"><textarea id="sslink" cols="40" rows="3"></textarea>
     <textarea id="ssconfig" cols="40" rows="10"></textarea></div>
 <?php
@@ -98,7 +99,7 @@ echo createUL(getSSLink($file));
         }
     }
 </script>
-<a href="index.php?type=mm" >mm</a>
+
 </body>
 </html>
 
