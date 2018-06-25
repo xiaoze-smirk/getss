@@ -30,7 +30,7 @@ function getSSLink($file)
     return $link;
 }
 
-function genNode($sslink, $is_SSR=false)
+function genNode($sslink, $is_SSR = false)
 {
     str_replace($sslink, "ss://", "");
     $ss = explode("@", $sslink);
@@ -42,8 +42,6 @@ function genNode($sslink, $is_SSR=false)
 }
 
 //genNode("ss://aes-256-cfb:Sin1234qwer@138.68.156.22:8385");
-
-
 
 
 interface Inode
@@ -101,7 +99,7 @@ class SSR_Node implements Inode
      * @param $protocol
      * @param $obfs
      */
-    public function __construct($host, $port, $method = "aes-256-cfb", $password="Sin1234qwer", $protocol="origin", $obfs="plain")
+    public function __construct($host, $port, $method = "aes-256-cfb", $password = "Sin1234qwer", $protocol = "origin", $obfs = "plain")
     {
         $this->host = $host;
         $this->port = $port;
@@ -109,15 +107,16 @@ class SSR_Node implements Inode
         $this->password = $password;
         $this->protocol = $protocol;
         $this->obfs = $obfs;
-        $this->link = "$host:$port:$protocol:$method:$obfs:".urlsafe_b64encode($password)."/?group=free";
+        $this->link = "$host:$port:$protocol:$method:$obfs:" . urlsafe_b64encode($password) . "/?group=" . urlsafe_b64encode("free");
     }
 
 
     function genLink()
     {
-        return "ssr://" .urlsafe_b64encode($this->link);
+        return "ssr://" . urlsafe_b64encode($this->link);
     }
 }
+
 //
 //$node1 = new SSR_Node("127.0.0.1", "8080");
 //echo $node1->genLink();
@@ -129,8 +128,9 @@ class SSR_Node implements Inode
  * 字符串长度%4的余数，补'='
  * @param unknown $string
  */
-function urlsafe_b64decode($string) {
-    $data = str_replace(array('-','_'),array('+','/'),$string);
+function urlsafe_b64decode($string)
+{
+    $data = str_replace(array('-', '_'), array('+', '/'), $string);
     $mod4 = strlen($data) % 4;
     if ($mod4) {
         $data .= substr('====', $mod4);
@@ -145,8 +145,9 @@ function urlsafe_b64decode($string) {
  * '=' -> ''
  * @param unknown $string
  */
-function urlsafe_b64encode($string) {
+function urlsafe_b64encode($string)
+{
     $data = base64_encode($string);
-    $data = str_replace(array('+','/','='),array('-','_',''),$data);
+    $data = str_replace(array('+', '/', '='), array('-', '_', ''), $data);
     return $data;
 }
