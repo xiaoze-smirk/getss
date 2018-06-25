@@ -4,15 +4,11 @@ $filename = 'abc.txt';
 $file = getFileContent($filename);
 $link = getLink($file);
 $text = "";
-
+foreach ($link as $item){
+    $text .="$item\n";
+}
 if ($_GET['dingyue'] == '1') {
-    foreach ($link as $item){
-    $text .="$item?group=ZnJlZQ\n";
-    }
     echo base64_encode($text);
 } else {
-    foreach ($link as $item){
-    $text .="$item\n";
-    }
     echo $text;
 }
