@@ -7,7 +7,6 @@ $text = "";
 foreach ($link as $item){
     $text .="$item\n";
 }
-echo base64_encode($text);
 
 if ($_GET['dingyue'] == '1') {
     echo base64_encode($text);
