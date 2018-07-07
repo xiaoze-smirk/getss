@@ -1,8 +1,8 @@
-# SSLink 账号
+# 获取 shadowsocks 账号
 
 
-## SS
+## Shadowsocks
 > http://www.sslink.shop/link.php
 
-## SSR 订阅
+## ShadowsocksR 订阅链接
 > http://www.sslink.shop/link.php?dingyue=1
