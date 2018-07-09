@@ -1,26 +1,30 @@
 <?php
-
 //获取文件内容
-function getFileContent($filename)
+function getFileContent($filename,$update=false)
 {
     $uri = 'http://mof.trade/intro/' . $filename;
     $date = date('Y-m-d');
-    $file = $filename . $date;
+    $file = $filename;
+    if($update){
+        $filecontent = file_get_contents($uri);
+        file_put_contents($file, $filecontent);
+        //文件保存失败
+        if(!file_exists($file)){
+            return "";
+        }
+    }
     if (file_exists($file)) {
         //文件存在
         return file_get_contents($file);
-    } else {
-        //文件不存在
-        $filecontent = file_get_contents($uri);
-        file_put_contents($file, $filecontent);
-        return $filecontent;
     }
-    return ‘’;
+    //文件不存在
+    if(!file_exists($file)){
+        return getFileContent($filename,true);
+    }
 }
 function getSSLink($file)
 {
     $fileContent = base64_decode($file);
-//    echo $fileContent;
     $p = '~ss://((?!").)*~';//~是分界符
     preg_match_all($p, $fileContent, $match);
     $link = array();
@@ -136,18 +140,14 @@ function urlsafe_b64encode($string)
     $data = str_replace(array('+', '/', '='), array('-', '_', ''), $data);
     return $data;
 }
-
-
 $is_dingyue = isset($_GET['dingyue']);
+$update = isset($_GET['update']);
 $filename = 'abc.txt';
-$file = getFileContent($filename);
+$file = getFileContent($filename,$update);
 $link = getSSLink($file);
 $text = "";
-
 foreach ($link as $item) {
-
     $text .= genNode($item, $is_dingyue) . "\n";
-
 }
 if ($is_dingyue) {
     echo base64_encode($text);
