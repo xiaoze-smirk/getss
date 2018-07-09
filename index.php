@@ -147,10 +147,10 @@ $file = getFileContent($filename,$update);
 $link = getSSLink($file);
 $text = "";
 foreach ($link as $item) {
-    $text .= genNode($item, $is_dingyue) . "</br>";
+    $text .= genNode($item, $is_dingyue) . "\n";
 }
 if ($is_dingyue) {
     echo base64_encode($text);
 } else {
-    echo $text;
+    echo str_replace("</br>", "\n", $text);
 }
