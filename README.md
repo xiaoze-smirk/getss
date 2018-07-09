@@ -2,7 +2,7 @@
 
 
 ## Shadowsocks
-> http://sslink.shop/
+> https://sslink.shop/
 
 ## ShadowsocksR 订阅
-> http://sslink.shop/?dingyue
+> https://sslink.shop/?dingyue
