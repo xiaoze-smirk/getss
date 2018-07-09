@@ -1,4 +1,4 @@
-# 获取 shadowsocks 账号
+# 获取 免费 shadowsocks 账号
 
 
 ## Shadowsocks
