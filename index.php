@@ -1,23 +1,5 @@
 <?php
 
-
-$is_dingyue = isset($_GET['dingyue']);
-$filename = 'abc.txt';
-$file = getFileContent($filename);
-$link = getSSLink($file);
-$text = "";
-
-foreach ($link as $item) {
-
-    $text .= genNode($item, $is_dingyue) . "\n";
-
-}
-if ($is_dingyue) {
-    echo base64_encode($text);
-} else {
-    echo $text;
-}
-
 //获取文件内容
 function getFileContent($filename)
 {
@@ -153,4 +135,22 @@ function urlsafe_b64encode($string)
     $data = base64_encode($string);
     $data = str_replace(array('+', '/', '='), array('-', '_', ''), $data);
     return $data;
+}
+
+
+$is_dingyue = isset($_GET['dingyue']);
+$filename = 'abc.txt';
+$file = getFileContent($filename);
+$link = getSSLink($file);
+$text = "";
+
+foreach ($link as $item) {
+
+    $text .= genNode($item, $is_dingyue) . "\n";
+
+}
+if ($is_dingyue) {
+    echo base64_encode($text);
+} else {
+    echo $text;
 }
