@@ -150,7 +150,7 @@ foreach ($link as $item) {
     $text .= genNode($item, $is_dingyue) . "\n";
 }
 if ($is_dingyue) {
-    echo base64_encode($text);
+    echo urlsafe_b64encode($text);
 } else {
     echo str_replace("</br>", "\n", $text);
 }
