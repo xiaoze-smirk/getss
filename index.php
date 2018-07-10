@@ -152,5 +152,5 @@ foreach ($link as $item) {
 if ($is_dingyue) {
     echo urlsafe_b64encode($text);
 } else {
-    echo str_replace("</br>", "\n", $text);
+    echo str_replace("\n", "</br>", $text);
 }
