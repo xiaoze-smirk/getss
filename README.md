@@ -2,7 +2,7 @@
 
 
 ## Shadowsocks
-> https://sslink.shop/
+> http://sslink-sslink.a3c1.starter-us-west-1.openshiftapps.com
 
 ## ShadowsocksR 订阅
-> https://sslink.shop/?dingyue
+> http://sslink-sslink.a3c1.starter-us-west-1.openshiftapps.com/?dingyue
