@@ -40,8 +40,13 @@ function genNode($sslink, $is_SSR = false)
     $url = explode(":", $ss[1]);
     $ip = $url[0];
     $port = $url[1];
-    $node = $is_SSR ? new SSR_Node($ip, $port) : new SS_Node($ip, $port);
-    return $node->genLink();
+    if("8082" == $port){
+        $port = "8087";
+        $node = $is_SSR ? new SSR_Node($ip, $port) : new SS_Node($ip, $port);
+        return $node->genLink();
+    }
+    return false;
+
 }
 //genNode("ss://aes-256-cfb:Sin1234qwer@138.68.156.22:8385");
 interface Inode
@@ -147,7 +152,8 @@ $file = getFileContent($filename,$update);
 $link = getSSLink($file);
 $text = "";
 foreach ($link as $item) {
-    $text .= genNode($item, $is_dingyue) . "\n";
+    $node = genNode($item, $is_dingyue) . "\n";
+    if($node) $text .= $node;
 }
 if ($is_dingyue) {
     echo urlsafe_b64encode($text);
