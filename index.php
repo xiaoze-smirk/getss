@@ -40,8 +40,8 @@ function genNode($sslink, $is_SSR = false)
     $url = explode(":", $ss[1]);
     $ip = $url[0];
     $port = $url[1];
-    if("8082" == $port){
-        $port = "8087";
+    if("8382" == $port){
+        $port = "8387";
         $node = $is_SSR ? new SSR_Node($ip, $port) : new SS_Node($ip, $port);
         return $node->genLink();
     }
@@ -152,8 +152,8 @@ $file = getFileContent($filename,$update);
 $link = getSSLink($file);
 $text = "";
 foreach ($link as $item) {
-    $node = genNode($item, $is_dingyue) . "\n";
-    if($node) $text .= $node;
+    $node = genNode($item, $is_dingyue);
+    if($node) $text .= $node. "\n";
 }
 if ($is_dingyue) {
     echo urlsafe_b64encode($text);
