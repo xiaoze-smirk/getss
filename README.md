@@ -1,7 +1,5 @@
-# shadowsocks 账号
+# Shadowsocks
+> https://getss.shop
 
-## Shadowsocks
-> http://sslink-sslink.a3c1.starter-us-west-1.openshiftapps.com
-
-## ShadowsocksR 订阅
-> http://sslink-sslink.a3c1.starter-us-west-1.openshiftapps.com/?dingyue
+# ShadowsocksR
+> https://getss.shop/?dingyue
