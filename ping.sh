@@ -1,7 +1,7 @@
 #! /bin/bash
 for i in `cat ip.txt`
 do
-        ping -c2 -W1 ${i} &> /dev/null
+        ping -c1 -W1 ${i} &> /dev/null
         if [ "$?" == "0" ]; then
                 echo "$i is UP"
         else
