@@ -103,7 +103,7 @@ class SS_Node
         $this->password = $password;
         $this->link = "$method:$password@$host:$port";
         $this->remark = $remark;
-        $this->link = "ss://" . urlsafe_b64encode($this->link) . $remark;
+        $this->link = "ss://" . urlsafe_b64encode($this->link) . "#$remark";
         $this->name = $remark;
         $this->url = "http://$host/";
         $this->download=$this->link;
